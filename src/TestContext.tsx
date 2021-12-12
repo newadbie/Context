@@ -14,16 +14,12 @@ const TestContext = createContext<ITest>({
   toogleIsTrue: () => undefined,
 });
 
-export const TestContextProvider = ({ children }: IProps) => {
+export const TestContextProvider = (props: any) => {
   const [isTrue, setIsTrue] = useState(false);
 
   const toogleIsTrue = () => setIsTrue((lastValue) => !lastValue);
 
-  return (
-    <TestContext.Provider value={{ isTrue, toogleIsTrue }}>
-      {children}
-    </TestContext.Provider>
-  );
+  return <TestContext.Provider value={{ isTrue, toogleIsTrue }} {...props} />;
 };
 
 const useTestContext = () => useContext(TestContext);

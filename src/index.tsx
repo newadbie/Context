@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 import { TestContextProvider } from "./TestContext";
 import reportWebVitals from "./reportWebVitals";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 ReactDOM.render(
   <React.StrictMode>
-    <TestContextProvider>
-      <App />
-    </TestContextProvider>
+    <ErrorBoundary>
+      <TestContextProvider>
+        <App />
+      </TestContextProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
 );
